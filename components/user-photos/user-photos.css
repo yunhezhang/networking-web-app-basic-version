@@ -1,0 +1,99 @@
+.cs142-user-photos {
+	font-family: cursive;
+}
+
+#photo-title {
+	font-family: fantasy;
+}
+
+#photo-card {
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px lightgrey;
+	min-width:100%;
+}
+
+#comment {
+	width:100%;
+	border-spacing: 10px;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+#photostepper{
+	background: black;
+	color: white;
+}
+
+#submitButton {
+	background-color: black;
+	color: white;
+}
+
+.photoBackground {
+    position: fixed;
+    min-width: 100%;
+    min-height:100%;
+    height:100%;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+}
+
+#backgroundimg {
+  min-width: 100%;
+  min-height:100%;
+}
+
+.contentView {
+	position: absolute;
+ 	max-width: 100%;
+	z-index:2;
+}
+
+.userphotos {
+  max-width: 100%;
+}
+
+.commentsListNameTag {
+  text-decoration: none;
+}
+
+.searchAt{
+	color: white;
+	background-color: grey;
+}
+
+.peoplelist:hover {
+	color: blue;
+}
+
+.commentTextArea {
+	margin-right: 15px;
+}
+
+.photoCommentsList {
+	margin-bottom: 10px;
+}
+.addCommentDiv{
+	margin-right: 20px;
+}
+.md-list-item-text {
+	max-width: 80%;
+}
+
+p {
+    word-break: break-all;
+    white-space: normal;
+}
+
+.material-icons:hover {
+	cursor: pointer;
+}
+
+.material-icons.orange600 { 
+	color: #FB8C00; 
+}
+
+.material-icons.red { 
+	color: red; 
+}

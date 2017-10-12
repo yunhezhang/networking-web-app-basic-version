@@ -1,0 +1,12 @@
+.example-image {
+	max-width: 280px;
+	margin: 30px;
+}
+
+.favlist{
+	align-items: center;
+}
+
+#favlistsection {
+	z-index: 99;
+}

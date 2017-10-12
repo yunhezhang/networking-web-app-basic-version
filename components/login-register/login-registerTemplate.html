@@ -1,0 +1,56 @@
+<md-tabs id="tabs">
+      <md-tab class="loginTab" label="Login">
+        <md-content>     
+            <md-card>
+                <md-input-container>
+                    <label for="username">Username </label>
+                    <input type="text" ng-model="loginName" required />
+                </md-input-container>
+                <md-input-container>
+                    <label for="password">Password </label>
+                    <input type="password" ng-model="loginPassword" required />
+                </md-input-container>
+                <md-button ng-click="loginFunc()">Login</md-button>
+            </md-card>
+        </md-content>
+      </md-tab>
+      <md-tab class="loginTab" id="registerTab" label="Register">
+        <md-content id="registerForm">
+            <md-card>
+                <md-input-container>
+                    <label for="username">Login name: </label>
+                    <input type="text" ng-model="reg_loginName" required />
+                </md-input-container>
+                <md-input-container>
+                    <label for="username">Password: </label>
+                    <input type="password" ng-model="reg_password" required />
+                </md-input-container>
+                <md-input-container>
+                    <label for="username">Confirm password: </label>
+                    <input type="password" ng-model="reg_passwordConfirm" required />
+                </md-input-container>
+                <md-input-container>
+                    <label for="username">First name: </label>
+                    <input type="text" ng-model="reg_firstname" required />
+                </md-input-container>
+                <md-input-container>
+                    <label for="username">Last name</label>
+                    <input type="text" ng-model="reg_lastname" required />
+                </md-input-container>
+                <md-input-container>
+                    <label for="username">Location: </label>
+                    <input type="text" ng-model="reg_location" />
+                </md-input-container>
+                <md-input-container>
+                    <label for="password">Description: </label>
+                    <input type="text" ng-model="reg_description" />
+                </md-input-container>
+                <md-input-container>
+                    <label for="password">Occupation: </label>
+                    <input type="text" ng-model="reg_occupation" />
+                </md-input-container>
+                <md-button ng-click="registerFunc()">Register Me</button>
+            </md-card>
+        </md-content>
+      </md-tab>
+</md-tabs>

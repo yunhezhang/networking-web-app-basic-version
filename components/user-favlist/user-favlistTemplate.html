@@ -1,0 +1,15 @@
+<section id="favlistsection">
+	<h3 ng-if="currUser.favlist.length" >Favorite Images</h3>
+	<h3 ng-if="!currUser.favlist.length" >No Favorite Images</h3>
+
+	<md-list>
+		<md-list-item class="favlist" ng-repeat="photo in currUser.favlist |orderBy: '-add_time'">
+			<md-divider></md-divider>
+			<div class="md-list-item-text" layout="column">
+				<a class="example-image-link" ng-href="/images/{{photo.file_name}}" data-lightbox="example-1" data-title="{{photo.date_time}}"><img class="example-image" ng-src="/images/{{photo.file_name}}" alt="image-1" /></a>
+			</div>
+			<md-button ng-click="deleteFavFunc(photo._id)"><i class="material-icons">delete_forever</i></md-button>
+		</md-list-item>
+	</md-list>
+</section>
+

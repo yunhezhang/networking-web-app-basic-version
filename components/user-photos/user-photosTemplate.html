@@ -1,0 +1,89 @@
+<md-card ng-if="photo" class="contentView" ng-if="curStatus.advanced == true" class="cs142-user-photos">
+
+	<div id="buttons" flex>
+	<md-button class="photostepper" ng-disabled="prevButton === false" ng-click='prev()'>PREV</md-button>
+	<span flex></span>
+	<md-button class="photostepper" ng-disabled="nextButton === false" ng-click='next()'>NEXT</md-button>
+	</div>
+
+	<img class="userphotos" ng-src="/images/{{photo.file_name}}" alt='No photo'>
+		<h4 id="photo-date">{{photo.date_time}}</h4>
+		<span ng-if="checkLiked(photo.likes) == false" ng-click="likeFunc(photo._id)"><i class="material-icons">thumb_up</i><span>  Like: {{photo.likes.length ||0}}</span></span>
+		<span ng-if="checkLiked(photo.likes) == true" ng-click="likeFunc(photo._id)"><i class="material-icons orange600">thumb_up</i><span>  Like: {{photo.likes.length ||0}}</span></span>
+
+		<span ng-if="!checkFav(photo._id)" ng-click="favFunc(photo._id)"><i class="material-icons">favorite_border</i><span> Add to My Favorite</span></span>
+		<span ng-if="checkFav(photo._id)"><i class="material-icons red">favorite</i><span>  My Favorite</span></span>
+
+		<md-button ng-if="photo.user_id === userinfo.userId" ng-click="deletePhotoFunc(photo._id)">Delete photo</md-button><br>
+		<md-input-container class="addCommentDiv" ng-if="photo">
+            <label>Add Comment: </label>
+            <textarea rows="4" cols="30" type="text" mentio mentio-id="comInput" placeholder="New Comment Here" mentio-typed-text="typedTerm" mentio-items="people | filter:label:typedTerm" mentio-select="nameShown(item)" ng-model="commentInput[photo._id]" mentio-template-url="/people-mentions.tpl" />
+
+	            <script type="text/ng-template" id="/people-mentions.tpl">
+		            <ul class="searchAt">
+		            	<li mentio-menu-item="person" ng-repeat="person in items" class="peoplelist">
+		            	{{person.label}}
+		            	</li>
+		            </ul>
+	            </script>
+            <md-button id="submitButton" ng-click="submitComment(photo._id)">Submit</button>
+   		</md-input-container>
+
+   		<md-content>
+	       	<md-list>
+				<md-list-item class="photoCommentsList" ng-repeat="curComment in photo.comments | orderBy: '-date_time'">
+					<md-divider ></md-divider>
+			        <img ng-src='/images/head3.jpg' class="md-avatar"/>
+			        <div class="md-list-item-text">
+			          <a class="commentsListNameTag" ng-href="#/users/{{curComment.user._id}}">{{curComment.user.first_name}} {{curComment.user.last_name}}</a>
+			          <p>{{curComment.date_time}}</p>
+			          <p class="commentTextArea">{{curComment.comment}}</p>
+			        </div>
+			        <span flex></span>
+			        <md-button ng-if="curComment.user._id === userinfo.userId" ng-click="deleteCommentFunc(photo._id, curComment._id)"><i class="material-icons">delete_forever</i></md-button>
+		     	</md-list-item>
+		    </md-list>
+   		</md-content>
+</md-card>
+
+<md-list class="contentView" ng-if="curStatus.advanced !== true" class="cs142-user-photos">
+	<md-card id="photo-card" ng-repeat="photo in curUserPhotos | orderBy: ['-likes.length', '-date_time']">
+		<img class="userphotos" ng-src="/images/{{photo.file_name}}">
+			<h4 id="photo-date">{{photo.date_time}}</h4>
+			<span ng-if="checkLiked(photo.likes) == false" ng-click="likeFunc(photo._id)"><i class="material-icons">thumb_up</i><span>  Like: {{photo.likes.length ||0}}</span></span>
+			<span ng-if="checkLiked(photo.likes) == true" ng-click="likeFunc(photo._id)"><i class="material-icons orange600">thumb_up</i><span>  Like: {{photo.likes.length ||0}}</span></span>
+
+			<span ng-if="!checkFav(photo._id)" ng-click="favFunc(photo._id)"><i class="material-icons">favorite_border</i><span> Add to My Favorite</span></span>
+			<span ng-if="checkFav(photo._id)"><i class="material-icons red">favorite</i><span>  My Favorite</span></span>
+
+			<md-button ng-if="photo.user_id === userinfo.userId" ng-click="deletePhotoFunc(photo._id)">Delete photo</md-button><br>
+			<md-input-container class="addCommentDiv">
+	            <label>Add Comment: </label>
+		        <textarea class="commentInput" rows="4" cols="30" type="text" mentio mentio-id="comInput" placeholder="New Comment Here" mentio-typed-text="typedTerm" mentio-items="people | filter:label:typedTerm" mentio-select="nameShown(item)" ng-model="commentInput[photo._id]" mentio-template-url="/people-mentions.tpl" />
+
+	            <script type="text/ng-template" id="/people-mentions.tpl">
+		            <ul class="searchAt">
+		            	<li mentio-menu-item="person" ng-repeat="person in items" class="peoplelist">
+		            	{{person.label}}
+		            	</li>
+		            </ul>
+	            </script>
+
+            <md-button id="submitButton" ng-click="submitComment(photo._id)">Submit</md-button>
+       		</md-input-container>
+
+	       	<md-list>
+				<md-list-item class="photoCommentsList" ng-repeat="curComment in photo.comments | orderBy:'-date_time'">
+					<md-divider ></md-divider>
+			        <img ng-src='/images/head3.jpg' class="md-avatar"/>
+			        <div class="md-list-item-text">
+			          <a class="commentsListNameTag" ng-href="#/users/{{curComment.user._id}}">{{curComment.user.first_name}} {{curComment.user.last_name}}</a>
+			          <p>{{curComment.date_time}}</p>
+			          <p class="commentTextArea">{{curComment.comment}}</p>
+			        </div>
+			        <span flex></span>
+			        <md-button ng-if="curComment.user._id === userinfo.userId" ng-click="deleteCommentFunc(photo._id, curComment._id)"><i class="material-icons">delete_forever</i></md-button>
+		     	</md-list-item>
+		    </md-list>
+	</md-card>
+</md-list>

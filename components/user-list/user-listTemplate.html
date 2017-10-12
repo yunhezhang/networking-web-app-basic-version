@@ -1,0 +1,23 @@
+<!-- <img class="icon" id="userListIcon" ng-src="/images/head.jpg"> -->
+<img class="backgroundPic" ng-src="/images/back1.jpg"></img> 
+
+<md-list>
+
+	<md-list-item class="cs142-userList" ng-repeat="x in usersList | orderBy: x.first_name">
+		<md-divider ></md-divider>
+
+	  	<div layout="row" flex id="listbox">
+        <img ng-src='/images/head3.jpg' class="md-avatar"/>
+
+	    <a id="nametag" ng-href="#/users/{{x._id}}">{{x.first_name}} {{x.last_name}}</a>
+	    
+	    <span flex></span>
+	    <div layout="row"  class='count'>
+		    <md-button id='photoCount' ng-if="curStatus.advanced === true" class='md-fab md-mini countbutton' aria-label='closed'>{{(curStatus.countInfo[x._id]).photoNum || 0}}</md-button>
+
+		    <md-button id='commentCount' ng-if="curStatus.advanced === true" ng-href='#/comments/{{x._id}}' class='md-fab md-mini countbutton' aria-label='closed'>{{(curStatus.countInfo[x._id]).commentNum || 0}}</md-button>
+		</div>
+	  </div>
+	</md-list-item>
+</md-list>
+

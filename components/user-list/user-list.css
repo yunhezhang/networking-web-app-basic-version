@@ -1,0 +1,43 @@
+.cs142-userList{
+	font-family: fantasy;
+}
+
+#listbox {
+	border-radius: 4px;
+	position: relative;
+}
+
+#userListIcon {
+	width: 30px;
+	height: 30px;
+}
+
+#photoCount {
+	background-color: #63A963;
+	color:yellow;
+}
+
+#commentCount {
+	
+	background-color: #CE5959;
+	color:yellow;
+}
+
+.md-button {
+	font-family: fantasy;
+}
+#nametag {
+	color: white;
+	text-decoration: none;
+	padding: 15px;
+	padding-left: 5px;
+}
+
+.backgroundPic {
+    position: absolute;
+    max-width: 100%;
+    min-height:100%;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}

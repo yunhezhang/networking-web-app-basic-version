@@ -1,0 +1,33 @@
+.cs142-user-detail {
+	font-family: initial;
+	width:100%;
+	min-height: 400px;
+	
+}
+
+#photolink {
+	text-decoration: none;
+	font-family: fantasy;
+}
+
+.icon {
+	width:25px;
+	height:25px;
+}
+#userdetail {
+	width:100%;
+}
+.detailBackground {
+    position: absolute;
+    max-width: 100%;
+    min-height:100%;
+    left: 0px;
+    top: 0px;
+}
+#description{
+	max-width: 45%;
+}
+
+.mentiontext{
+	z-index: 2;
+}

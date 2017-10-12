@@ -1,0 +1,14 @@
+<md-content class="cs142-user-comments">
+   	<md-list>
+		<md-list-item class="commentsList" ng-repeat="comment in currComments">
+			<md-divider ></md-divider>
+			<img class="md-avatar" ng-src="/images/{{comment.photo_name}}">
+			<div class="md-list-item-text" layout="column">
+				<a id="commentTag" ng-href='#/photos/{{comment.photo_user_id}}/{{comment.photo_id}}'>
+				<h3>{{comment.comment}}</h3>
+				</a>
+			</div>
+		</md-list-item>
+    </md-list>
+</md-content>
+

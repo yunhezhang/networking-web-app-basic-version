@@ -1,0 +1,47 @@
+<md-content class="cs142-user-detail">
+<img class="detailBackground" ng-src="/images/detailback.jpg"></img> 
+    
+  <div id="userdetail">
+
+    <md-list>
+
+  	<md-list-item>
+        <img class="md-avatar" ng-src="/images/head3.jpg"></img>  
+
+        <h2><p>{{currUser.first_name}} {{currUser.last_name}}</p></h2>
+  	</md-list-item>
+
+    
+    <md-list-item>
+	    <img class="md-avatar" ng-src="/images/job.jpg"></img>  
+	    <p>{{currUser.occupation}}</p>
+    </md-list-item>
+
+    <md-list-item>
+    	<img class="md-avatar" ng-src="/images/pin.jpg"></img>
+    	<p>{{currUser.location}}</p>
+    </md-list-item>
+
+    <md-list-item>
+    	<img class="md-avatar" ng-src="/images/comment.jpg"></img>  
+    	<div id="description"><p>{{currUser.description}}</p></div>
+    </md-list-item>
+    <md-list-item>
+    	<img class="md-avatar" ng-src="/images/camera-icon.jpg"></img> 
+    	<p><a id="photolink" ng-href="#/photos/{{currUser._id}}">{{currUser.first_name}} {{currUser.last_name}}'s photos</a></p>
+    </md-list-item>
+    <md-card>
+
+        <h3 class="mentiontext" ng-if="mentionedPhotos.length" flex>Mentioned In:</h3>
+        <h3 class="mentiontext" ng-if="!mentionedPhotos.length" flex>Never to be mentioned any photo :( </h3>
+        
+
+        <md-list-item ng-repeat="photo in mentionedPhotos">
+            <a ng-href='#/photos/{{photo.user_id}}/{{photo._id}}'><img ng-src='/images/{{photo.file_name}}' class="md-avatar"/></a>
+            <a ng-href="#/users/{{photo.user_id}}"><p>{{findUserName(photo.user_id)}}</p></a>
+        </md-list-item>
+    </md-card>
+
+	</md-list>
+  </div>
+</md-content>
